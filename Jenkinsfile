@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/usr/bin:$PATH" // Add the directory where Python and pip are located
+    }
+
     stages {
         stage('Install Python') {
             steps {
@@ -35,8 +39,8 @@ pipeline {
 
         stage('Run unit tests') {
             steps {
-                // Specify the full path to the Python interpreter and run your tests
-                sh '/usr/bin/python3 ./test_add.py' // Use the full path to Python
+                // Specify the Python interpreter and run your tests
+                sh 'python ./test_add.py'
             }
         }
     }
