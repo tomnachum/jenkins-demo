@@ -35,8 +35,8 @@ pipeline {
 
         stage('Run unit tests') {
             steps {
-                // Specify the Python interpreter and run your tests
-                sh 'python ./test_add.py'
+                // Specify the full path to the Python interpreter and run your tests
+                sh '/usr/bin/python3 ./test_add.py' // Use the full path to Python
             }
         }
     }
