@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent 'backplane/conex-helper'
 
     environment {
         PATH = "/usr/bin:$PATH" // Add the directory where Python and pip are located
