@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('Install pip ') {
+        stage('Install pip') {
             steps {
                 script {
                     if (isUnix()) {
