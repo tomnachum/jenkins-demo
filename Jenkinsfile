@@ -13,4 +13,5 @@ pipeline {
                 sh 'python ./test_add.py'
                 }
         }
+    }
 }
