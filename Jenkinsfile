@@ -1,6 +1,7 @@
 pipeline {
-    agent 'backplane/conex-helper'
-
+    agent {
+        docker { image 'python_with_pytest:latest' }
+    }
     environment {
         PATH = "/usr/bin:$PATH" // Add the directory where Python and pip are located
     }
@@ -36,6 +37,7 @@ pipeline {
                 sh 'python3 -m pip install pytest'
             }
         }
+
         stage('Run unit tests in parallel'){
                 parallel {
             stage('Run unit tests') {
