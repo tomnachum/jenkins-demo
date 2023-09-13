@@ -36,8 +36,8 @@ pipeline {
                 sh 'python3 -m pip install pytest'
             }
         }
-
-        parallel {
+        stage('Run unit tests in parallel'){
+                parallel {
             stage('Run unit tests') {
                 steps {
                     // Specify the Python interpreter and run your tests
@@ -51,6 +51,9 @@ pipeline {
                 }
             }
         }
+
+        }
+
 
     }
 }
