@@ -33,14 +33,14 @@ pipeline {
         stage('Install pytest') {
             steps {
                 // Make sure pip is in the PATH
-                sh 'python -m pip install pytest'
+                sh 'python3 -m pip install pytest'
             }
         }
 
         stage('Run unit tests') {
             steps {
                 // Specify the Python interpreter and run your tests
-                sh 'python ./test_add.py'
+                sh 'python3 -m pytest ./test_add.py'
             }
         }
     }
