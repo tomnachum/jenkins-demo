@@ -1,11 +1,9 @@
 pipeline {
-    agent any // You can specify the node/agent to run the pipeline on
+    agent any
 
     stages {
-
         stage('Install Python') {
             steps {
-                // Install Python using the appropriate package manager for your system
                 script {
                     if (isUnix()) {
                         sh 'sudo apt-get update -y && sudo apt-get install -y python3'
@@ -18,7 +16,6 @@ pipeline {
 
         stage('Install pip') {
             steps {
-                // Install pip using the appropriate package manager for your system
                 script {
                     if (isUnix()) {
                         sh 'sudo apt-get update -y && sudo apt-get install -y python3-pip'
@@ -29,16 +26,18 @@ pipeline {
             }
         }
 
-        stage('Install pytest ') {
+        stage('Install pytest') {
             steps {
-                sh 'pip install pytest'
+                // Make sure pip is in the PATH
+                sh 'python -m pip install pytest'
             }
         }
 
         stage('Run unit tests') {
             steps {
+                // Specify the Python interpreter and run your tests
                 sh 'python ./test_add.py'
-                }
+            }
         }
     }
 }
