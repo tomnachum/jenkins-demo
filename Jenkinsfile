@@ -11,3 +11,6 @@ pipeline {
         stage('Run unit tests') {
             steps {
                 sh 'python ./test_add.py'
+                }
+        }
+}
