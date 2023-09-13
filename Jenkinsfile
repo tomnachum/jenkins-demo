@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Install Python') {
+        stage('Install Python3') {
             steps {
                 script {
                     if (isUnix()) {
