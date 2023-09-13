@@ -37,11 +37,17 @@ pipeline {
             }
         }
 
-        stage('Run unit tests') {
-            steps {
-                // Specify the Python interpreter and run your tests
-                sh 'python3 -m pytest ./test_add.py'
+        parallel{
+            stage('Run unit tests') {
+                steps {
+                    // Specify the Python interpreter and run your tests
+                    sh 'python3 -m pytest ./test_add.py'
+                }
+            stage('print hi in parralel'){
+                echo 'hi'
             }
+        }
+
         }
     }
 }
